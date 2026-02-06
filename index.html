@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        
+        canvas {
+            border: 1px solid black;
+            display: none;
+        }
+        
+        #startScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        #startScreen h1 {
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-size: 72px;
+            font-weight: bold;
+            text-align: center;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        
+        #startScreen.hidden {
+            display: none;
+        }
+        
+        #preventionScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 2s ease-in;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        #preventionScreen.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .ambulance-lights {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 0, 255, 0.4) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(92, 2, 2, 0.795) 0%, transparent 50%);
+            animation: flashLights 0.6s infinite alternate;
+            z-index: 1;
+        }
+        
+        @keyframes flashLights {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0.8;
+            }
+        }
+        
+        .scrolling-text {
+            position: absolute;
+            bottom: -100%;
+            width: 80%;
+            text-align: center;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            z-index: 2;
+        }
+        
+        #preventionScreen.visible .scrolling-text {
+            animation: scrollUp 30s linear forwards;
+            animation-delay: 1s;
+        }
+        
+        @keyframes scrollUp {
+            0% {
+                bottom: -50%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+            }
+        }
+        
+        .scrolling-text h1 {
+            font-size: 48px;
+            color: #ff3333;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+        
+        .scrolling-text p {
+            font-size: 24px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .scrolling-text h2 {
+            font-size: 32px;
+            color: #3388ff;
+            margin-top: 60px;
+            text-transform: uppercase;
+        }
+        
+        canvas.visible {
+            display: block;
+        }
+    </style>
+    <!-- Favicon vide pour éviter le 404 sur /favicon.ico -->
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <div id="startScreen">
+        <h1>PRESS 1</h1>
+    </div>
+    <div id="preventionScreen">
+        <div class="ambulance-lights"></div>
+        <div class="scrolling-text">
+            <h1>ACCIDENT FATAL</h1>
+            <p>Le conducteur du bus consultait son téléphone.</p>
+            <p>L'inattention au volant est l'une des principales causes d'accidents mortels.</p>
+            <br>
+            <p>En France, plus de 3 000 personnes perdent la vie sur les routes chaque année.</p>
+            <p>Le téléphone au volant multiplie par 3 le risque d'accident.</p>
+            <p>Lire un message vous oblige à quitter la route des yeux pendant 5 secondes.</p>
+            <p>À 50 km/h, vous parcourez 70 mètres à l'aveugle.</p>
+            <br>
+            <p>Ne laissez pas une notification détruire des vies.</p>
+            <h2>SUR LA ROUTE, LE TÉLÉPHONE PEUT ATTENDRE.</h2>
+        </div>
+    </div>
+    <canvas id="myCanvas" width="640" height="480"></canvas>
+    <script type="importmap">
+        { "imports": { "three": "./js/three.module.min.js", "gltf": "./js/GLTFLoader.js" } }
+    </script>
+    <script type="module" src="./js/policia.js"></script>
+</body>
+
+</html>

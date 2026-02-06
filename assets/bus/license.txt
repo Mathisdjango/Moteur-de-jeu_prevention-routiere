@@ -1,0 +1,11 @@
+Model Information:
+* title:	Bus LowPoly (free)
+* source:	https://sketchfab.com/3d-models/bus-lowpoly-free-19123e0abf254c4e9e14d1a6368c80ce
+* author:	A_Aalah (https://sketchfab.com/abdosalah513)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Bus LowPoly (free)" (https://sketchfab.com/3d-models/bus-lowpoly-free-19123e0abf254c4e9e14d1a6368c80ce) by A_Aalah (https://sketchfab.com/abdosalah513) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
